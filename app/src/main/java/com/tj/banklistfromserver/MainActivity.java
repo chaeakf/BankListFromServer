@@ -1,5 +1,6 @@
 package com.tj.banklistfromserver;
 
+import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -12,20 +13,23 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         bindViews();
         setupEvents();
         setValues();
     }
 
-    private void bindViews() {
+    private void setValues() {
+
     }
 
     private void setupEvents() {
+
     }
 
-    private void setValues() {
+    private void bindViews() {
+
+        act = DataBindingUtil.setContentView(this, R.layout.activity_main);
     }
 
 
