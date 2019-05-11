@@ -3,7 +3,7 @@ package com.tj.banklistfromserver.Utils;
 import android.content.Context;
 import android.util.Log;
 
-import org.jetbrains.annotations.NotNull;
+
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -50,15 +50,15 @@ public class ConnectServer {
 
         client.newCall(request).enqueue(new Callback() {
             @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+            public void onFailure( Call call,  IOException e) {
 
             }
 
             @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+            public void onResponse( Call call,  Response response) throws IOException {
 
                 String responseContent = response.body().string();
-                Log.d("서버 응답내용", responseContent);
+                Log.d("서버 응답 내용", responseContent);
 
             }
         });

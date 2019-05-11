@@ -3,10 +3,12 @@ package com.tj.banklistfromserver;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
+import com.tj.banklistfromserver.Utils.ConnectServer;
 import com.tj.banklistfromserver.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     ActivityMainBinding act;
 
@@ -19,18 +21,27 @@ public class MainActivity extends AppCompatActivity {
         setValues();
     }
 
-    private void setValues() {
+
+    @Override
+    public void setupEvents() {
+        act.serverTestBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ConnectServer.getRequestInfoBank(mContext, null);
+            }
+        });
 
     }
 
-    private void setupEvents() {
+    @Override
+    public void setValues() {
 
     }
 
-    private void bindViews() {
+    @Override
+    public void bindViews() {
 
         act = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
     }
-
-
 }
