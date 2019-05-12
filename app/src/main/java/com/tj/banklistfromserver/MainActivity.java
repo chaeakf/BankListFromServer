@@ -73,6 +73,8 @@ public class MainActivity extends BaseActivity {
                                                 banksList.add(bankObj);
                                             }
 
+                                            bankListadapter.notifyDataSetChanged();
+
                                         } catch (JSONException e) {
 
                                             e.printStackTrace();
