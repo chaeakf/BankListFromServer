@@ -9,14 +9,20 @@ import android.widget.Toast;
 
 import com.tj.banklistfromserver.Utils.ConnectServer;
 import com.tj.banklistfromserver.databinding.ActivityMainBinding;
+import com.tj.banklistfromserver.datas.Banks;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends BaseActivity {
 
     ActivityMainBinding act;
+
+    List<Banks> banksList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +63,12 @@ public class MainActivity extends BaseActivity {
                                             for (int i = 0; i < banks.length(); i++){
                                                 JSONObject bank = banks.getJSONObject(i);
 
-                                                String name = bank.getString("name");
-                                                Log.d("은행이름", name);
+//                                                String name = bank.getString("name");
+//                                                Log.d("은행이름", name);
+
+                                                Banks bankObj = Banks.getBankFromJson(bank);
+
+                                                banksList.add(bankObj);
                                             }
 
                                         } catch (JSONException e) {
