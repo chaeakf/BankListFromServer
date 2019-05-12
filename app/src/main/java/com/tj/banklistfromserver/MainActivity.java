@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.tj.banklistfromserver.Utils.ConnectServer;
+import com.tj.banklistfromserver.adapters.BankListadapter;
 import com.tj.banklistfromserver.databinding.ActivityMainBinding;
 import com.tj.banklistfromserver.datas.Banks;
 
@@ -23,6 +24,7 @@ public class MainActivity extends BaseActivity {
     ActivityMainBinding act;
 
     List<Banks> banksList = new ArrayList<>();
+    BankListadapter bankListadapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +116,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setValues() {
+        bankListadapter = new BankListadapter(mContext, banksList);
+        act.bankListView.setAdapter(bankListadapter);
 
     }
 
